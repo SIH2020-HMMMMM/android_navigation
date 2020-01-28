@@ -3,6 +3,15 @@ package com.example.vatron_navigation
 import android.os.Bundle
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
+
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
+import android.location.LocationManager
+import android.location.LocationListener
+import android.location.Location
+import com.google.android.gms.common.api.GoogleApiClient
+import com.google.android.gms.location.LocationRequest
 
 
 import android.widget.Button
@@ -37,6 +46,12 @@ class MainActivity : AppCompatActivity() {
     private val OPERATION_CHOOSE_PHOTO = 2
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+
+    private var locationManager : LocationManager? = null
+
+
     private val REQUEST_CODE = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,10 +61,16 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
+        locationManager = getSystemService(LOCATION_SERVICE) as LocationManager?
+
+
+
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Camera starting", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
+
+            //camera start karne ka intent
 
             val intent = Intent("android.media.action.IMAGE_CAPTURE")
             startActivity(intent)
@@ -99,12 +120,15 @@ class MainActivity : AppCompatActivity() {
 
          */
 
-       //Android documentation has both codes for sharing the application but neeche wala hi chlraha hai
+        //isme initialisation ka kuch jhole hai
+
+       //Android documentation has both codes for sharing the application but neeche wala hi chlaraha hai
 
     }
 
     fun sendMessage(view: View) {
 
+//share karne ke liye intent
 
         val s = "Download the app by Team HMMMM from playstore now" +
                 "yahape koibhi link dalsakte hai apan"
@@ -118,11 +142,38 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    fun locationbhej(view: View){
+        Snackbar.make(view, "sending location", Snackbar.LENGTH_LONG)
+            .setAction("Action", null).show()
+
+        try {
+            // Request location updates
+            locationManager?.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0L, 0f, locationListener)
+        } catch(ex: SecurityException) {
+            Log.d("myTag", "Security Exception, no location available")
+        }
+
+    }
+
+    private val locationListener: LocationListener = object : LocationListener {
+        override fun onLocationChanged(location: Location) {
+            //thetext.text = ("" + location.longitude + ":" + location.latitude)
+
+            //ye do variables me store karva denge
+            val longitudeuser=location.longitude
+            val latitueuser=location.latitude
+
+        }
+        override fun onStatusChanged(provider: String, status: Int, extras: Bundle) {}
+        override fun onProviderEnabled(provider: String) {}
+        override fun onProviderDisabled(provider: String) {}
+    }
 
     fun choosetosend(view: View) {
 
 
-        openGallery()
+        val intent = Intent("android.media.action.IMAGE_CAPTURE")
+        startActivity(intent)
 
 
     }
@@ -142,10 +193,14 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun openGallery(){
+        //gallery se image lene ka intent
+
         val intent = Intent("android.intent.action.GET_CONTENT")
         intent.type = "image/*"
         startActivityForResult(intent, OPERATION_CHOOSE_PHOTO)
     }
+
+
 
 
 
