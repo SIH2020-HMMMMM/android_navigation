@@ -16,10 +16,6 @@
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Crowdsource now" />
-        <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="How it works?" />
     </group>
 
     <item android:title="Communicate">
@@ -34,5 +30,11 @@
                 android:title="Refer and Earn" />
         </menu>
     </item>
+
+    <item
+        android:id="@+id/nav_tools"
+        android:icon="@drawable/ic_menu_manage"
+        android:title="About" />
+
 
 </menu>

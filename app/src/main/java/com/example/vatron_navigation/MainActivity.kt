@@ -65,16 +65,16 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        val fab: FloatingActionButton = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Camera starting", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-
-            //camera start karne ka intent
-
-            val intent = Intent("android.media.action.IMAGE_CAPTURE")
-            startActivity(intent)
-        }
+//        val fab: FloatingActionButton = findViewById(R.id.fab)
+//        fab.setOnClickListener { view ->
+//            Snackbar.make(view, "Camera starting", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null).show()
+//
+//            //camera start karne ka intent
+//
+//            val intent = Intent("android.media.action.IMAGE_CAPTURE")
+//            startActivity(intent)
+//        }
 
 
 //        val fab2: FloatingActionButton = findViewById(R.id.fab2)
@@ -126,7 +126,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun sendMessage(view: View) {
+    fun sendMessage() {
 
 //share karne ke liye intent
 
@@ -160,8 +160,8 @@ class MainActivity : AppCompatActivity() {
             //thetext.text = ("" + location.longitude + ":" + location.latitude)
 
             //ye do variables me store karva denge
-            val longitudeuser=location.longitude
-            val latitueuser=location.latitude
+//            val longitudeuser=location.longitude
+//            val latitueuser=location.latitude
 
         }
         override fun onStatusChanged(provider: String, status: Int, extras: Bundle) {}
@@ -169,7 +169,7 @@ class MainActivity : AppCompatActivity() {
         override fun onProviderDisabled(provider: String) {}
     }
 
-    fun choosetosend(view: View) {
+    fun choosetosend() {
 
 
         val intent = Intent("android.media.action.IMAGE_CAPTURE")
