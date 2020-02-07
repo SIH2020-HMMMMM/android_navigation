@@ -77,15 +77,15 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        val fab2: FloatingActionButton = findViewById(R.id.fab2)
-        fab2.setOnClickListener { view ->
-            Snackbar.make(view, "Gallery starting", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-
-            openGallery()
-
-
-        }
+//        val fab2: FloatingActionButton = findViewById(R.id.fab2)
+//        fab2.setOnClickListener { view ->
+//            Snackbar.make(view, "Gallery starting", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null).show()
+//
+//            openGallery()
+//
+//
+//        }
 
 
         //now its compulsory to initialize button
