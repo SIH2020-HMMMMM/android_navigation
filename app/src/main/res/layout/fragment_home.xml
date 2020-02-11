@@ -51,6 +51,7 @@
         android:text="  M A N U A L   M O D E"
         android:background="#ffffff"
         android:textSize="20sp"
+        android:onClick="opengalleryman"
         android:fontFamily="sans-serif-condensed-light"
         android:drawableStart="@drawable/ic_menu_camera"
         app:layout_constraintBottom_toBottomOf="parent"

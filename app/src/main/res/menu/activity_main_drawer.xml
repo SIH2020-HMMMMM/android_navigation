@@ -28,13 +28,15 @@
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Refer and Earn" />
+
+            <item
+                android:id="@+id/nav_tools"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="About" />
         </menu>
     </item>
 
-    <item
-        android:id="@+id/nav_tools"
-        android:icon="@drawable/ic_menu_manage"
-        android:title="About" />
+
 
 
 </menu>

@@ -30,6 +30,11 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.View
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -65,31 +70,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-//        val fab: FloatingActionButton = findViewById(R.id.fab)
-//        fab.setOnClickListener { view ->
-//            Snackbar.make(view, "Camera starting", Snackbar.LENGTH_LONG)
-//                .setAction("Action", null).show()
-//
-//            //camera start karne ka intent
-//
-//            val intent = Intent("android.media.action.IMAGE_CAPTURE")
-//            startActivity(intent)
-//        }
-
-
-//        val fab2: FloatingActionButton = findViewById(R.id.fab2)
-//        fab2.setOnClickListener { view ->
-//            Snackbar.make(view, "Gallery starting", Snackbar.LENGTH_LONG)
-//                .setAction("Action", null).show()
-//
-//            openGallery()
-//
-//
-//        }
-
-
-        //now its compulsory to initialize button
-
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
@@ -104,31 +84,13 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        /*
 
-        val share: Button = findViewById(R.id.share)
-        share.setOnClickListener {
-            val s = "hello"
-            //Intent to share the text
-            val shareIntent = Intent()
-            shareIntent.action = Intent.ACTION_SEND
-            shareIntent.type="text/plain"
-            shareIntent.putExtra(Intent.EXTRA_TEXT, s)
-            startActivity(Intent.createChooser(shareIntent,"Share via"))
-
-        }
-
-         */
-
-        //isme initialisation ka kuch jhole hai
-
-       //Android documentation has both codes for sharing the application but neeche wala hi chlaraha hai
 
     }
 
-    fun sendMessage() {
+    fun sendMessage(view: View) {
 
-//share karne ke liye intent
+        //share karne ke liye intent
 
         val s = "Download the app by Team HMMMM from playstore now" +
                 "yahape koibhi link dalsakte hai apan"
@@ -169,7 +131,9 @@ class MainActivity : AppCompatActivity() {
         override fun onProviderDisabled(provider: String) {}
     }
 
-    fun choosetosend() {
+    //it wont run without the view keyword in parameter
+
+    fun choosetosend(view: View) {
 
 
         val intent = Intent("android.media.action.IMAGE_CAPTURE")
@@ -192,7 +156,9 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    private fun openGallery(){
+
+    //it wont run without the view keyword in parameter
+    fun opengalleryman(view: View){
         //gallery se image lene ka intent
 
         val intent = Intent("android.intent.action.GET_CONTENT")
