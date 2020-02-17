@@ -28,6 +28,7 @@
         android:paddingBottom="17dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:onClick="startNewService"
         android:text="  D R I V I N G   M O D E"
         android:background="#ffffff"
         android:textSize="20sp"

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.content.Intent
 import android.net.Uri
 import android.util.Log
+import android.app.Activity;
 
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -33,8 +34,7 @@ import android.view.View
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-
-
+import android.widget.Toast
 
 
 class MainActivity : AppCompatActivity() {
@@ -146,6 +146,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
+
+        getMenuInflater().inflate(R.menu.main, menu);
         return true
     }
 
@@ -167,6 +169,17 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    //start the service
+    fun startNewService(view: View){
+        startService(Intent(this, MyService::class.java))
+        Thread.sleep(5000)
+        Toast.makeText(this, "Running in background",Toast.LENGTH_SHORT).show()
+    }
+
+    //stop the service
+    fun stopNewService(view: View){
+        stopService(Intent(this, MyService::class.java))
+    }
 
 
 
