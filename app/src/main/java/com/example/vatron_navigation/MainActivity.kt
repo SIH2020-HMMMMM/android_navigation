@@ -174,6 +174,7 @@ class MainActivity : AppCompatActivity() {
         startService(Intent(this, MyService::class.java))
         Thread.sleep(5000)
         Toast.makeText(this, "Running in background",Toast.LENGTH_SHORT).show()
+        startActivity(Intent(this, Main2Activity::class.java))
     }
 
     //stop the service
